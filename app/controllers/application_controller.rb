@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :basic_auth
+  before_action :authenticate_user!, only: [:new]
   before_action :configure_permitted_patameters, if: :devise_controller?
 
   private
