@@ -21,9 +21,9 @@ RSpec.describe OrderDestination, type: :model do
       expect(@order_destination.errors.full_messages).to include('Postal code Input correctly')
     end
     it 'shipping_place_idを選択していないと保存できないこと' do
-      @order_destination.shipping_place_id = 1 
+      @order_destination.shipping_place_id = 1
       @order_destination.valid?
-      expect(@order_destination.errors.full_messages).to include("Shipping place Select")
+      expect(@order_destination.errors.full_messages).to include('Shipping place Select')
     end
     it 'cityが空だと保存できないこと' do
       @order_destination.city = ''
@@ -43,12 +43,12 @@ RSpec.describe OrderDestination, type: :model do
     it 'tell_numberが半角数字以外だと保存できないこと' do
       @order_destination.tell_number = 'aaaaaaaaaa'
       @order_destination.valid?
-      expect(@order_destination.errors.full_messages).to include("Tell number Input correctly")
+      expect(@order_destination.errors.full_messages).to include('Tell number Input correctly')
     end
     it 'tell_numberが11桁よりより大きいと保存できないこと' do
       @order_destination.tell_number = '090123456789'
       @order_destination.valid?
-      expect(@order_destination.errors.full_messages).to include("Tell number Input correctly")
+      expect(@order_destination.errors.full_messages).to include('Tell number Input correctly')
     end
     it 'tokenが空だと保存できないこと' do
       @order_destination.token = ''

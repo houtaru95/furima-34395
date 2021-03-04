@@ -59,5 +59,4 @@ class ItemsController < ApplicationController
   def no_edit
     redirect_to(root_path) if @item.order.present?
   end
-
 end
