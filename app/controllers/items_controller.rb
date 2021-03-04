@@ -38,7 +38,7 @@ class ItemsController < ApplicationController
 
   def destroy
     @item.destroy
-    redirect_to root_path
+    redirect_to(root_path)
   end
 
   private
@@ -59,4 +59,5 @@ class ItemsController < ApplicationController
   def no_edit
     redirect_to(root_path) if @item.order.present?
   end
+
 end

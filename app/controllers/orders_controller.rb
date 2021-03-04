@@ -2,6 +2,7 @@ class OrdersController < ApplicationController
   before_action :authenticate_user!, only: [:index]
   before_action :find_item, only: [:index, :create]
   before_action :confirm_user, only: [:index, :create]
+  before_action :no_order, only: [:index]
 
   def index
     @order_destination = OrderDestination.new
@@ -12,7 +13,7 @@ class OrdersController < ApplicationController
     if @order_destination.valid?
       pay_item
       @order_destination.save
-      redirect_to root_path
+      redirect_to(root_path)
     else
       render 'index'
     end
@@ -32,6 +33,10 @@ class OrdersController < ApplicationController
 
   def find_item
     @item = Item.find(params[:item_id])
+  end
+
+  def no_order
+    redirect_to(root_path) if @item.order.present?
   end
 
   def pay_item
