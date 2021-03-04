@@ -4,6 +4,7 @@ FactoryBot.define do
     shipping_place_id  { 7 }
     city               { '横浜市' }
     address            { '青葉区' }
+    building_name      { 'あいうえおハイツ' }
     tell_number        { '09011111111' }
     token              { 'tok_abcdefghijk00000000000000000' }
   end

@@ -1,8 +1,8 @@
 class OrdersController < ApplicationController
-  before_action :authenticate_user!, only: [:index]
+  before_action :authenticate_user!, only: [:index, :create]
   before_action :find_item, only: [:index, :create]
   before_action :confirm_user, only: [:index, :create]
-  before_action :no_order, only: [:index]
+  before_action :no_order, only: [:index, :create]
 
   def index
     @order_destination = OrderDestination.new
